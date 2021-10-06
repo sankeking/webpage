@@ -20,7 +20,32 @@
     <!-- Ctrl + / -->
     <!-- b4-元件名-default b4-navbar-default -->
     <!-- 導覽列  -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+            <?php
+    // 建立MySQL的資料庫連接 
+    $link = @mysqli_connect( 
+                'localhost',  // MySQL主機名稱 
+                'root',       // 使用者名稱 
+                '1234',  // 密碼 
+                'test');  // 預設使用的資料庫名稱 
+    if ( !$link ) {
+       echo "MySQL資料庫連接錯誤!<br/>";
+       exit();
+    }
+    else {
+       echo "MySQL資料庫test連接成功!<br/>";
+    }
+    mysqli_close($link);  // 關閉資料庫連接
+    $lin = 2;
+    ?>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+
+        <?php if($lin == 1){?>
+            <a class="navbar-brand" href="#">Pokemon 鑽石珍珠</a>
+
+        <?php }else{ ?>
+
+            <a class="navbar-brand" href="#">Pokemon 鑽石珍珠</a>
+        <?php } ?>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
